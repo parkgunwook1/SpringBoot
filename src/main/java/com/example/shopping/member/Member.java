@@ -1,13 +1,10 @@
-package com.example.shopping;
-
-import com.example.shopping.member.Grade;
+package com.example.shopping.member;
 
 public class Member {
+
     private Long id;
     private String name;
     private Grade grade;
-
-    private Member() {}
 
     public Member(Long id, String name, Grade grade) {
         this.id = id;
