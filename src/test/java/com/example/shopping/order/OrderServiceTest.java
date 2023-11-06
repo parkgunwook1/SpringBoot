@@ -1,10 +1,12 @@
 package com.example.shopping.order;
 
+import com.example.shopping.AppConfig;
 import com.example.shopping.member.Grade;
 import com.example.shopping.member.Member;
 import com.example.shopping.member.MemberService;
 import com.example.shopping.member.MemberServiceImpl;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -12,8 +14,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OrderServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
-    OrderService orderService = new OrderServiceImpl();
+    MemberService memberService;
+    OrderService orderService;
+
+    @BeforeEach
+    public void beforeEach() {
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+        orderService = appConfig.orderService();
+    }
 
     @Test
     void createOrder() {

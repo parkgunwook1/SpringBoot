@@ -8,7 +8,9 @@ import com.example.shopping.member.MemberServiceImpl;
 public class MemberApp {
 
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+        // MemberService memberService = new MemberServiceImpl(); => 재설계 전직접 main 메서드에서 구현했었음.
         Member member = new Member(1L, "memberA", Grade.VIP); // 컨트롤 + 알트 + v
         memberService.join(member);
 
