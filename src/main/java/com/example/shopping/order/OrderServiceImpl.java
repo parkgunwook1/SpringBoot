@@ -6,12 +6,16 @@ import com.example.shopping.discount.RateDiscountPolicy;
 import com.example.shopping.member.Member;
 import com.example.shopping.member.MemberRepository;
 import com.example.shopping.member.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderServiceImpl implements OrderService {
 
     private final MemberRepository memberRepository; // final이 되어있으면 기본으로 할당을 하든, 생성자로 할당을 해야한다.
     private final DiscountPolicy discountPolicy;
 
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
