@@ -1,6 +1,5 @@
 package com.example.shopping.beanfind;
 
-import com.example.shopping.AppConfig;
 import com.example.shopping.discount.DiscountPolicy;
 import com.example.shopping.discount.FixDiscountPolicy;
 import com.example.shopping.discount.RateDiscountPolicy;

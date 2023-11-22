@@ -1,7 +1,6 @@
 package com.example.shopping.member;
 
 import com.example.shopping.AppConfig;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

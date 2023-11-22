@@ -4,8 +4,6 @@ import com.example.shopping.AppConfig;
 import com.example.shopping.member.Grade;
 import com.example.shopping.member.Member;
 import com.example.shopping.member.MemberService;
-import com.example.shopping.member.MemberServiceImpl;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;

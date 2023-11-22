@@ -1,9 +1,7 @@
 package com.example.shopping.singleton;
 
 import com.example.shopping.AppConfig;
-import com.example.shopping.member.Member;
 import com.example.shopping.member.MemberService;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;

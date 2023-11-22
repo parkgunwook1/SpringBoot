@@ -1,7 +1,5 @@
 package com.example.shopping.beanfind;
 
-import com.example.shopping.AppConfig;
-import com.example.shopping.discount.DiscountPolicy;
 import com.example.shopping.member.MemberRepository;
 import com.example.shopping.member.MemoryMemberRepository;
 import org.junit.jupiter.api.DisplayName;
@@ -13,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.Map;
 
-import static org.assertj.core.api.FactoryBasedNavigableListAssert.assertThat;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

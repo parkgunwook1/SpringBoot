@@ -3,7 +3,6 @@ package com.example.shopping.beanfind;
 import com.example.shopping.AppConfig;
 import com.example.shopping.member.MemberService;
 import com.example.shopping.member.MemberServiceImpl;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
