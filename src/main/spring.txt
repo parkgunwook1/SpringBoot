@@ -561,3 +561,46 @@ lombok 기능
 
 
 조회 빈이 2개 이상 - 문제
+@Autowired는 타입으로 조회한다.
+
+타입으로 조회하기 때문에, 마치 다음 코드와 유사하게 동작한다.
+ac.getBean(DiscountPolicy.class)
+
+스프링 빈 조회에서 학습했듯이 타입으로 조회하면 선택된 빈이 2개 이상일 때 문제가 발생한다.
+DiscountPolicy의 하위 타입인 FixDiscountPolicy, RateDiscountPolicy 둘 다 스프링 빈으로 선언하면 NoUniqueBeanDefinitionException 오류가 발생한다.
+
+
+@Autowired 필드명, @Qualifier, @Primary
+조회 대상 빈이 2개 이상일 때 해결 방법
+- @Autowired 필드 명 매칭
+- @Qualifier -> @Qualifier 끼리 매칭 -> 빈 이름 매칭
+- @Primary 사용
+
+- @Autowired 필드명 매칭
+@Autowired는 타입 매칭을 시도하고, 이때 여러 빈이 있으면 필드 이름, 파라미터 이름으로 빈 이름을 추가 매칭한다.
+
+@Autowired 매칭 정리
+1. 타입매칭
+2. 타입 매칭의 결과가 2개 이상일 때 필드 명, 파라미터 명으로 빈 이름 매칭
+
+@Qualifier 사용
+@Qualifier는 추가 구분자를 붙여주는 방법이다. 주입시 추가적인 방법을 제공하는 것이지 빈 이름을 변경하는 것은 아니다.
+
+@Qualifierfh wndlqgkf Eo @Qualifier("mainDiscountPolicy") 를 못찾으면 어떻게 될까?
+그러면 mainDiscountPolicy라는 이름의 스프링 빈을 추가로 찾는다. 하지만 경험상 @Qualfier는 @Qulifier를 찾는 용도로만 사용하는게 명확하고 좋다.
+
+@Qualifier 정리
+1. @Qualifier끼리 매칭
+2. 빈 이름 매칭
+
+@Primary 사용
+@Primary는 우선순위를 정하는 방법이다. @Autowired 시에 여러 번 매칭되면 @Primary가 우선권을 가진다.
+
+DiscountPolicy에 RateDiscountPolicy 클래스에 @Primary를 붙여주면 다른거 다 무시하고 우선권을 가지게 된다.
+
+@Quilifier의 단점은 주입 받을 때 모든 코드에 @Quilifier를 붙여주어야 하는 단점이 있다.
+@Primary를 사용하면 @Quilifier를 붙일 필요가 없다.
+
+@Primary보다 @Quilifier가 우선순위가 높다.
+
+
