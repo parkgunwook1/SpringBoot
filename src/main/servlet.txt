@@ -42,7 +42,7 @@ HTTP 요청 메시지를 통해 클라이언트에서 서버로 데이터를 전
     - 예) 검색, 필터, 페이징 등에서 많이 사용하는 방식
 - POST-HTML Form
     - content:type:application/x-www-form-irlencoded
-    - 메시지 바디에 쿼리 파라미터 형식으로 전달
+    - 메시지 바디에 쿼리 파라미터 형식으로 전달(키 밸류 전달)
     - 예) 회원 가입, 상품, 주문, HTML Form 사용
 - HTTP message body에 데이터를 직접 담아서 요청
     - HTTP API에서 주로 사용, JSON, XML, TEXT
@@ -55,10 +55,14 @@ request.getParamerter()는 하나의 파라미터 이름에 대해서 단 하나
 request.getParameterValues()를 사용해야 한다.
 참고로 이렇게 중복일 때 request.getParameter()를 사용하면 request.getParameterValues()의 첫 번째 값을 반환한다.
 
+application/x-www-form-urlencodedd 형식은 앞서 GET에서 살펴본 쿼리 파라미터 형식과 같다. 따라서 쿼리 파라미터 조회 메서드를
+그대로 사용하면 된다. 클라이언트에서는 두 방식에 차이가 있지만, 서버 입장에서는 둘의 형식이 동일하므로, request.getParameter()로
+편리하게 구분없이 조회할 수 있다.
 
+정리하면 request.getParameter()는 GET URL 쿼리 파라미터 형식도 지원하고, POST HTML Form 형식도 둘 다 지원한다.
 
-
-
+HTTP mssage body에 데이터를 직접 담아서 요청
+    - HTTP API에서 주로 사용
 
 
 
