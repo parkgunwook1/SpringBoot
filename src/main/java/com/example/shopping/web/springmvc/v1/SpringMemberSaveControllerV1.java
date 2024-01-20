@@ -2,6 +2,8 @@ package com.example.shopping.web.springmvc.v1;
 
 import com.example.shopping.servlet.domain.member.Member;
 import com.example.shopping.servlet.domain.member.MemberRepository;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,9 +16,9 @@ public class SpringMemberSaveControllerV1 {
     private MemberRepository memberRepository = MemberRepository.getInstance();
 
     @RequestMapping("/springmvc/v1/members/save")
-    public ModelAndView process(Map<String, String> paramMap) {
-        String username = paramMap.get("username");
-        int age = Integer.parseInt(paramMap.get("age"));
+    public ModelAndView process(HttpServletRequest request, HttpServletResponse response) {
+        String username = request.getParameter("username");
+        int age = Integer.parseInt(request.getParameter("age"));
 
         Member member = new Member(username, age);
         memberRepository.save(member);
